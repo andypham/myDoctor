@@ -28,7 +28,12 @@ angular.module('starter.controllers', [])
         if (texts.indexOf('diagnosis') > -1) {
           Conversation.getDiagnosis().then(function handleDiagnose(diagnose) {
             $scope.messages.push(angular.extend({}, {content: '<p class="hidden">'+diagnose.name+'</p>'}));
-            $scope.messages.push(angular.extend({}, {content: '<p>Looks like you show symptoms of '+diagnose.name+'</p>'}));
+            if (diagnose.message == "No Match") {
+              $scope.messages.push(angular.extend({}, {content: '<p>I\'m unable to diagnose your symptoms at the moment.</p>'}));
+            }
+            else {
+              $scope.messages.push(angular.extend({}, {content: '<p>Looks like you show symptoms of '+diagnose.name+'</p>'}));
+            }
             $scope.messages.push(angular.extend({}, {content: '<p class="hidden"></p>'}));
             $scope.messages.push(angular.extend({}, {content: '<p>Let me get Dr. Pepper on the call to further assist you.</p>'}));
             Conversation.makePhoneCall().then(function handlePhoneCall(data) {
