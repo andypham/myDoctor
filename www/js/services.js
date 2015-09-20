@@ -37,7 +37,52 @@ angular.module('starter.services', [])
         .catch(onConversationFail);
     }
 
+    function TwilioPhoneService(msg) {
+      var req = {
+        method: 'POST',
+        url: 'http://e50e374a.ngrok.io/click2call',
+        data: {
+          phoneNumber: '6502743517'
+        }
+      };
+
+      function onTwilioPhoneServiceSuccess(resp) {
+        return resp.data;
+      }
+
+      function onTwilioPhoneServiceFail(err) {
+        console.error('Fail Twilio Phone Service', err);
+        return err;
+      }
+
+      return $http(req)
+        .then(onTwilioPhoneServiceSuccess)
+        .catch(onTwilioPhoneServiceFail);
+    }
+
+    function getDiagnose() {
+      var req = {
+        method: 'GET',
+        url: 'http://c6faf276.ngrok.io/diagnosis'
+      };
+
+      function onDiagnoseSuccess(resp) {
+        return resp.data;
+      }
+
+      function onDiagnoseFail(err) {
+        console.log('Fail to get diagnose', err);
+        return err;
+      }
+
+      return $http(req)
+        .then(onDiagnoseSuccess)
+        .catch(onDiagnoseFail);
+    }
+
     return {
-      create: createConversation
+      create: createConversation,
+      makePhoneCall: TwilioPhoneService,
+      getDiagnosis: getDiagnose
     };
   });

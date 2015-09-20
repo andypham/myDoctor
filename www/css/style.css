@@ -17,6 +17,10 @@ body {
 
 }
 
+.hidden {
+    display: none;
+}
+
 .bar-frosted {
     background-color: #F7F7F7;
 

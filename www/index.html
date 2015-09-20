@@ -27,7 +27,7 @@
   </head>
   <body ng-app="starter">
     <ion-pane ng-controller="PageCtrl">
-      <ion-header-bar frosted-bar class="bar-frosted">
+      <ion-header-bar>
       </ion-header-bar>
 
       <ion-content class="padding">
@@ -35,8 +35,11 @@
           <li ng-repeat="message in messages" ng-bind-html="message.content"></li>
         </ol>
       </ion-content>
-      <ion-footer-bar class="bar-frosted">
-        <button class="button button-clear button-positive" ng-click="add()">Add Message</button>
+      <ion-footer-bar>
+        <label class="item item-input row">
+          <i class="icon ion-android-microphone placeholder-icon"></i>
+          <input type="text" placeholder="Type it" ng-keyup="$event.keyCode==13 &amp;&amp; add($event)">
+        </label>
       </ion-footer-bar>
     </ion-pane>
   </body>
