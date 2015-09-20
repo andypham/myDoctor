@@ -35,7 +35,11 @@ angular.module('starter', ['ionic', 'ionic.contrib.frostedGlass'])
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ionic.contrib.frostedGlass', 'ngSanitize'])
+angular.module('starter', ['ionic',
+                           'starter.controllers',
+                           'starter.services',
+                           'ionic.contrib.frostedGlass',
+                           'ngSanitize'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
