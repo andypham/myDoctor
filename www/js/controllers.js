@@ -1,8 +1,9 @@
 angular.module('starter.controllers', [])
   .controller('PageCtrl', function($scope, $ionicFrostedDelegate, $ionicScrollDelegate, $rootScope, Conversation, $sce) {
     var patientMessages = [
-      {content: 'I have a headache'},
-      {content: 'Beta Blockers'}
+      {content: 'I have a headache, vomiting, dizziness '},
+      {content: 'Beta Blockers'},
+      {content: 'None'}
     ];
 
     var messageIter = 0;
